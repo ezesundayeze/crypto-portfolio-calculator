@@ -103,6 +103,57 @@
         .target-input input {
             width: 200px;
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+                /* Smaller font size for smaller screens */
+            }
+
+            .target-input {
+                flex-direction: column;
+                /* Stack label and input */
+                align-items: flex-start;
+                /* Align to start */
+            }
+
+            .target-input label {
+                margin-bottom: 5px;
+                /* Add margin for spacing */
+            }
+
+            .target-input input {
+                width: 100%;
+                /* Full width on small screens */
+                max-width: none;
+                /* Remove max-width */
+            }
+
+            th,
+            td {
+                padding: 8px;
+                /* Reduce padding for smaller screens */
+                font-size: 0.9em;
+                /* Smaller font size for smaller screens */
+            }
+
+            button {
+                width: 100%;
+                /* Full width for buttons on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+                /* Smaller font size for very small screens */
+            }
+
+            table {
+                font-size: 0.8em;
+                /* Smaller font size for table */
+            }
+        }
     </style>
 </head>
 
@@ -113,23 +164,26 @@
             <label for="targetValue">Target Value ($):</label>
             <input type="number" id="targetValue" value="100000" onchange="updateTarget(this.value)">
         </div>
-        <table id="portfolioTable">
-            <thead>
-                <tr>
-                    <th>Token</th>
-                    <th>Current Price</th>
-                    <th>Quantity</th>
-                    <th>Current Value</th>
-                    <th>% of Portfolio</th>
-                    <th>Target Price</th>
-                    <th>Target Value</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Table rows will be inserted here by JavaScript -->
-            </tbody>
-        </table>
+        <div style="overflow-x:auto;">
+
+            <table id="portfolioTable">
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Current Price</th>
+                        <th>Quantity</th>
+                        <th>Current Value</th>
+                        <th>% of Portfolio</th>
+                        <th>Target Price</th>
+                        <th>Target Value</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
         <button id="addRowBtn">Add Token</button>
     </div>
     <script src="app.js"></script>
